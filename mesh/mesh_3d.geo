@@ -1,0 +1,53 @@
+// Gmsh project created on Mon Mar 12 21:09:26 2018
+Point(1) = {-1, -1, -1, 1.0};
+Point(2) = {1, -1, -1, 1.0};
+Point(3) = {1, -1, 1, 1.0};
+Point(4) = {-1, -1, 1, 1.0};
+Point(5) = {-1, 1, -1, 1.0};
+Point(6) = {1, 1, -1, 1.0};
+Point(7) = {1, 1, 1, 1.0};
+Point(8) = {-1, 1, 1, 1.0};
+Line(1) = {8, 4};
+Line(2) = {4, 3};
+Line(3) = {3, 7};
+Line(4) = {7, 8};
+Line(5) = {5, 1};
+Line(6) = {1, 2};
+Line(7) = {2, 6};
+Line(8) = {6, 5};
+Line(9) = {4, 1};
+Line(10) = {3, 2};
+Line(11) = {7, 6};
+Line(12) = {8, 5};
+Line Loop(13) = {1, 2, 3, 4};
+Plane Surface(14) = {13};
+Line Loop(15) = {2, 10, -6, -9};
+Plane Surface(16) = {15};
+Line Loop(17) = {6, 7, 8, 5};
+Plane Surface(18) = {17};
+Line Loop(19) = {12, 5, -9, -1};
+Plane Surface(20) = {19};
+Line Loop(21) = {11, 8, -12, -4};
+Plane Surface(22) = {21};
+Line Loop(23) = {3, 11, -7, -10};
+Plane Surface(24) = {23};
+Surface Loop(25) = {18, 16, 14, 20, 22, 24};
+Volume(26) = {25};
+
+Transfinite Line {7, 3} = 5 Using Progression 1;
+Transfinite Line {11, 10} = 5 Using Progression 1;
+Transfinite Line {3, 1} = 5 Using Progression 1;
+Transfinite Line {2, 4} = 5 Using Progression 1;
+Transfinite Line {12, 9} = 5 Using Progression 1;
+Transfinite Line {1, 5} = 5 Using Progression 1;
+Transfinite Line {8, 6} = 5 Using Progression 1;
+Transfinite Line {7, 5} = 5 Using Progression 1;
+Transfinite Line {10, 9} = 5 Using Progression 1;
+Transfinite Line {2, 6} = 5 Using Progression 1;
+Transfinite Line {8, 4} = 5 Using Progression 1;
+Transfinite Line {12, 11} = 5 Using Progression 1;
+
+Transfinite Surface "*";
+Recombine Surface "*";
+Transfinite Volume "*";
+
